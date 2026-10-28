@@ -35,6 +35,8 @@
 #include <objc/objc-exception.h>
 #include "config.h"
 #include "grading.h"
+#include <dlfcn.h>
+#include "../vendor/fsr4-native-macos/src/fsr4_live.h"
 #ifndef BG3MFX_VERSION
 #define BG3MFX_VERSION "dev"   // pack.sh passes the VERSION file
 #endif
@@ -47,6 +49,7 @@
 #include "diagnostics.inc.mm"        // the clock, the stall watchdogs, the periodic reports, GPU capture
 #include "config_apply.inc.mm"       // puts config.toml into effect and keeps re-reading it while you play
 #include "snapshot.inc.mm"           // texture helpers, and the copies we take out of each frame
+#include "fsr4_bridge.inc.mm"
 #include "metalfx_encode.inc.mm"     // encodes the frame for MetalFX, on the separate or the event path
 #include "grading_pipeline.inc.mm"   // learns BG3's colour grading and puts it on our upscaled image
 #include "resize_lifetime.inc.mm"    // rebuilds after a resolution change, frees textures only when safe

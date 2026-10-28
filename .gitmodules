@@ -1,0 +1,3 @@
+[submodule "vendor/fsr4-native-macos"]
+	path = vendor/fsr4-native-macos
+	url = https://github.com/UzenUPoZiTiV4ik/fsr4-native-macos.git

@@ -89,6 +89,7 @@ static void drain_graveyard(void) {
 
 static int g_dimChangeSeen = 0, g_resizes = 0;
 static void teardown_for_resize(void) {
+    release_fsr4_owner();
     retire_obj((id*)&g_scaler);
     retire_obj((id*)&g_colorCopy);
     retire_obj((id*)&g_depthCopy);

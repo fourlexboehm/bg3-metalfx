@@ -160,7 +160,7 @@ static void encode_metalfx_on(id<MTLCommandBuffer> encCB, float jx, float jy) {
     g_reset = NO;
     [g_scaler setInputContentWidth:g_inW];
     [g_scaler setInputContentHeight:g_inH];
-    [g_scaler encodeToCommandBuffer:encCB];
+    if (!encode_fsr4_on(encCB)) [g_scaler encodeToCommandBuffer:encCB];
 
     if (!g_encLogged) {
         [encCB addCompletedHandler:^(id<MTLCommandBuffer> c) {

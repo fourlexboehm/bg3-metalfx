@@ -1,3 +1,23 @@
+# BG3 MetalFX + native FSR 4 (experimental fork)
+
+This fork adds an optional **FSR 4.1.2 INT8 Lite** backend to IndyIndyIndy's
+BG3 MetalFX mod. It runs natively on Apple Silicon through Metal; CrossOver
+and a Windows copy of BG3 are not required.
+
+Build and usage: [FSR4-INTEGRATION.md](FSR4-INTEGRATION.md).
+
+Validated locally on an M2 Max with the native GOG game: Lite upscaling ran
+in-game at Quality, 2016x1260 -> 3024x1890. The full FSR 4.1.1 exact-fast
+model also ran, but reduced that setup below 30 FPS. This is limited testing,
+not a guarantee of compatibility or visual correctness. Frame generation is
+disabled in the FSR development launcher.
+
+The original MetalFX path remains available. Model code is pinned as a
+submodule; downloaded model assets are not included in this repository.
+The original upstream README follows.
+
+---
+
 # BG3 MetalFX
 
 Replaces Baldur's Gate 3's upscaler (FSR 1.0) with **MetalFX Temporal**, and can add **MetalFX frame
