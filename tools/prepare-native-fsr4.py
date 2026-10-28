@@ -21,6 +21,7 @@ model = source/'build/fsr412_model'
 if not model.exists():
     raise SystemExit('Run python3 tools/setup-fsr4-model.py first')
 stage.mkdir(parents=True, exist_ok=True)
+(stage/"logs").mkdir(exist_ok=True)
 shutil.copytree(source, stage, dirs_exist_ok=True,
     ignore=shutil.ignore_patterns('.git', 'build', 'dist', 'tests', '__pycache__', '.DS_Store'))
 shutil.copytree(model, stage/'build/fsr412_model', dirs_exist_ok=True)

@@ -16,7 +16,7 @@ RUNTIME="$HOME/Library/Containers/$BUNDLE_ID/Data/Library/Application Support/Na
 [ -f "$RUNTIME/prepared.txt" ] || {
     echo "Run python3 tools/prepare-native-fsr4.py $NAME first." >&2; exit 1;
 }
-LOGDIR="$RUNTIME/logs"
+LOGDIR="$HOME/Library/Logs/NativeFSR4/$NAME"
 mkdir -p "$LOGDIR"
 # Set only model/profile. Exposure, jitter, motion, content regions and depth
 # conventions are captured from the game's own MetalFX scaler descriptor.
@@ -26,6 +26,6 @@ exec arch -arm64 env \
     FSR4_BUILD_DIR="$RUNTIME/build" \
     FSR4_SETTINGS=none FSR4_VERSION=4.1.2 FSR4_PROFILE=int8-lite \
     FSR4_MODEL=auto FSR4_RCAS=0 FSR4_COMPILE=0 FSR4_REPLACE=1 \
-    FSR4_HOOK_LOG="$LOGDIR/fsr4.log" \
+    FSR4_HOOK_LOG="$RUNTIME/logs/fsr4.log" \
     DYLD_INSERT_LIBRARIES="$RUNTIME/libnativefsr4.dylib" \
     "$BIN" > "$LOGDIR/game.log" 2>&1

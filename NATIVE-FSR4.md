@@ -46,8 +46,9 @@ The hook replaces its encoding with FSR 4.1.2 Lite using the game's input sizes,
 exposure, depth/motion conventions, offsets, dynamic-resolution and jitter values.
 The launcher does not change game settings or enable frame generation.
 
-Logs live in `NativeFSR4/logs/game.log` and `NativeFSR4/logs/fsr4.log` in that same
-container. Look for `NATIVE FSR4: ACTIVE` and current `4.1.2 encoded` entries.
+Launcher/process output is written to `~/Library/Logs/NativeFSR4/<game>/game.log`.
+The backend writes `NativeFSR4/logs/fsr4.log` inside the game's container. The
+launcher avoids writing into the protected container before executing the game. Look for `NATIVE FSR4: ACTIVE` and current `4.1.2 encoded` entries.
 A loaded-hook message alone does not prove that replacement frames ran.
 
 For example, Cyberpunk's runtime is:
