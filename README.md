@@ -1,3 +1,8 @@
+> This `native-metalfx-fsr4` branch also includes an experimental general MetalFX
+> temporal-scaler hook for native Mac games. See [NATIVE-FSR4.md](NATIVE-FSR4.md).
+> Cyberpunk has confirmed live FSR encodes; Crimson Desert still needs in-game
+> validation. The BG3-only integration is on `fsr4-integration`.
+
 # BG3 MetalFX + native FSR 4 (experimental fork)
 
 This fork adds an optional **FSR 4.1.2 INT8 Lite** backend to IndyIndyIndy's
